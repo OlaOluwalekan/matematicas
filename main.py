@@ -1,6 +1,9 @@
 from main_options import print_main_options
 from evaluate.evaluate_expression import evaluate_expression
 from evaluate.input_expression import input_expression
+from numerical_integrals.intervals import get_intervals
+from numerical_integrals.integral_solution import solve_integral
+from evaluate.variables import get_variables
 
 print("WELCOME TO MATEMATICAS")
 
@@ -8,9 +11,16 @@ main_choice = print_main_options()
 
 if main_choice == 1:
     expression = input_expression()
-    result = evaluate_expression(expression=expression)
+    variables = get_variables(expression=expression)
+    result = evaluate_expression(expression=expression, variables=variables)
     print("RESULT: ", result)
 elif main_choice == 2:
     print("SOLVING FOR UNKNOWN VARIABLES")
+elif main_choice == 3:
+    print("NUMERICAL INTEGRATION")
+    f = input_expression()
+    intervals = get_intervals()
+    result = solve_integral(f, intervals["a"], intervals["b"])
+    print(f"integral of {f} from {intervals['a']} to {intervals['b']} is {result}")
 else:
     print("INVALID CHOICE")

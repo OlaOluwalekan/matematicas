@@ -29,7 +29,7 @@ def split_expression(expression):
                     # new_char = "~" + character + "~"
                     # temp.append(new_char)
                 else:
-                    temp.append(character)
+                    temp.append("-1")
             else:
                 temp.append(character)
     

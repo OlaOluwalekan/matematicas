@@ -4,7 +4,7 @@ from evaluate.simplify_expression import simplify_expression
 from evaluate.solve import solve_expression
 from globals import VARIABLES
 
-def evaluate_expression(expression):
+def evaluate_expression(expression, variables):
     """
         Evaluates a given expression
 
@@ -16,10 +16,10 @@ def evaluate_expression(expression):
     """
     # print(expression)
 
-    print("EVALUATING EXPRESSION")
+    # print("EVALUATING EXPRESSION")
 
     # GET THE LIST OF VARIABLES
-    variables = get_variables(expression=expression)
+    # variables = get_variables(expression=expression)
 
     temp = []
     for i, char in enumerate(expression):
