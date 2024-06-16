@@ -22,23 +22,25 @@ def solve_expression(simplified_list):
     result_list = simplified_list.copy()
 
     # if "/" in result_list:
-        
+
+    while len(result_list) > 1 and "/" in result_list:
+        # print("LIST: ", count, ":", result_list)
+        indexOfOperator = result_list.index("/")
+        res = operate(result_list[indexOfOperator - 1], result_list[indexOfOperator], result_list[indexOfOperator + 1])
+        result_list.pop(indexOfOperator - 1)
+        result_list.pop(indexOfOperator - 1)
+        result_list.pop(indexOfOperator - 1)
+        result_list.insert(indexOfOperator - 1, res)
+
+    while len(result_list) > 1 and "*" in result_list:
+        indexOfOperator = result_list.index("*")
+        res = operate(result_list[indexOfOperator - 1], result_list[indexOfOperator], result_list[indexOfOperator + 1])
+        result_list.pop(indexOfOperator - 1)
+        result_list.pop(indexOfOperator - 1)
+        result_list.pop(indexOfOperator - 1)
+        result_list.insert(indexOfOperator - 1, res)
 
     while len(result_list) > 1:
-        while "/" in result_list:
-            indexOfOperator = result_list.index("/")
-            res = operate(result_list[indexOfOperator - 1], result_list[indexOfOperator], result_list[indexOfOperator + 1])
-            result_list.pop(indexOfOperator - 1)
-            result_list.pop(indexOfOperator - 1)
-            result_list.pop(indexOfOperator - 1)
-            result_list.insert(indexOfOperator - 1, res)
-        while "*" in result_list:
-            indexOfOperator = result_list.index("*")
-            res = operate(result_list[indexOfOperator - 1], result_list[indexOfOperator], result_list[indexOfOperator + 1])
-            result_list.pop(indexOfOperator - 1)
-            result_list.pop(indexOfOperator - 1)
-            result_list.pop(indexOfOperator - 1)
-            result_list.insert(indexOfOperator - 1, res)
         res = operate(result_list[0], result_list[1], result_list[2])
         result_list.pop(0)
         result_list.pop(0)
