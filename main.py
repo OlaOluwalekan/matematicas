@@ -4,6 +4,7 @@ from evaluate.input_expression import input_expression
 from numerical_integrals.intervals import get_intervals
 from numerical_integrals.integral_solution import solve_integral
 from evaluate.variables import get_variables
+from evaluate.format import format_expression
 
 print("WELCOME TO MATEMATICAS")
 
@@ -11,6 +12,7 @@ main_choice = print_main_options()
 
 if main_choice == 1:
     expression = input_expression()
+    expression = format_expression(expression=expression)
     variables = get_variables(expression=expression)
     result = evaluate_expression(expression=expression, variables=variables)
     print("RESULT: ", result)

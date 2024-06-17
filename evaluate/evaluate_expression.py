@@ -40,7 +40,7 @@ def evaluate_expression(expression, variables):
                         temp.append(char)
 
     expression = "".join(temp)
-    print(expression)
+    # print(expression)
 
 # 6-(2x-5(x+7))(1-2x)/8
 
@@ -55,6 +55,9 @@ def evaluate_expression(expression, variables):
                 if start != None:
                     inner_expression = expression[start + 1: i]
                     res = evaluate_expression(inner_expression, variables)
+                    # exp_com = split_expression(expression=inner_expression)
+                    # sim_lis = simplify_expression(expression_list=exp_com, variables=variables)
+                    # res = solve_expression(simplified_list=sim_lis)
                     expression = expression[:start] + str(res) + expression[i + 1:]
                     break
 
@@ -66,7 +69,7 @@ def evaluate_expression(expression, variables):
 
     # SIMPLIFY THE LIST OF EXPRESSION COMPONENTS
     simplified_list = simplify_expression(expression_list=expression_components, variables=variables)
-    # print(simplified_list)
+    # print("SIMPLE:", simplified_list)
 
     # SOLVE THE SIMPLIFIED LIST
     result = solve_expression(simplified_list=simplified_list)
@@ -74,4 +77,5 @@ def evaluate_expression(expression, variables):
     # return expression_components
     return result
     
+    # 2x – 3xy + 9y – 7y + 8
         

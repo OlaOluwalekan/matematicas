@@ -10,9 +10,6 @@ def split_expression(expression):
         returns:
             expression_components (list): The list of components of the expression
     """
-    
-    # variables = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ"
-    # # operators = ["+", "-", "*", "/"]
 
     expression_components = []
     temp = []
@@ -29,7 +26,7 @@ def split_expression(expression):
                     # new_char = "~" + character + "~"
                     # temp.append(new_char)
                 else:
-                    temp.append("-1")
+                    temp.append("-1~*~")
             else:
                 temp.append(character)
     

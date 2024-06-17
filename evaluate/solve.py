@@ -1,3 +1,5 @@
+import math
+
 def operate(num1, operator, num2):
     if operator == "+":
         result = num1 + num2
