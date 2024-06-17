@@ -5,6 +5,8 @@ from numerical_integrals.intervals import get_intervals
 from numerical_integrals.integral_solution import solve_integral
 from evaluate.variables import get_variables
 from evaluate.format import format_expression
+from quadratic.quadratic import solve_quadratic_equation
+from quadratic.quadratic_expression import get_quadratic_expression
 
 print("WELCOME TO MATEMATICAS")
 
@@ -18,6 +20,10 @@ if main_choice == 1:
     print("RESULT: ", result)
 elif main_choice == 2:
     print("SOLVING FOR UNKNOWN VARIABLES")
+    res = get_quadratic_expression()
+    coefficients = res["coefficients"]
+    unknown = res["unknown"]
+    solve_quadratic_equation(coefficients=coefficients, variable=unknown)
 elif main_choice == 3:
     print("NUMERICAL INTEGRATION")
     f = input_expression()

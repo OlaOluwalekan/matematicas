@@ -1,7 +1,7 @@
-def input_expression():
+def input_expression(prompt="Enter an expression: "):
     """
         Asks the user for an expression and returns it
     """
 
-    expression = input("Enter an expression: ")
+    expression = input(prompt)
     return expression
