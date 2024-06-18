@@ -24,7 +24,7 @@ def get_variables(expression):
     variables_object = {}
 
     for var in variables_list:
-        variables_object[var] = float(input(f"Enter the value of {var}: "))
+        variables_object[var] = float(eval(input(f"Enter the value of {var}: ")))
 
     # print(variables_object)
     return variables_object

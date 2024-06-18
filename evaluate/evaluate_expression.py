@@ -3,6 +3,7 @@ from evaluate.variables import get_variables
 from evaluate.simplify_expression import simplify_expression
 from evaluate.solve import solve_expression
 from globals import VARIABLES, OPERATORS
+from evaluate.format import format_expression
 
 def evaluate_expression(expression, variables):
     """
@@ -33,7 +34,7 @@ def evaluate_expression(expression, variables):
                 if char in OPERATORS or char == ")":
                     temp.append(char)
                 else:
-                    if expression[i - 1] == ")":
+                    if expression[i - 1] == ")" and char != "^":
                         newChar = "*" + char
                         temp.append(newChar)
                     else:
@@ -54,14 +55,12 @@ def evaluate_expression(expression, variables):
             elif char == ")":
                 if start != None:
                     inner_expression = expression[start + 1: i]
-                    res = evaluate_expression(inner_expression, variables)
-                    # exp_com = split_expression(expression=inner_expression)
-                    # sim_lis = simplify_expression(expression_list=exp_com, variables=variables)
-                    # res = solve_expression(simplified_list=sim_lis)
+                    # res = evaluate_expression(inner_expression, variables)
+                    exp_com = split_expression(expression=inner_expression)
+                    sim_lis = simplify_expression(expression_list=exp_com, variables=variables)
+                    res = solve_expression(simplified_list=sim_lis)
                     expression = expression[:start] + str(res) + expression[i + 1:]
                     break
-
-    # print(expression)
 
     # SPLIT EXPRESSION INTO COMPONENTS
     expression_components = split_expression(expression=expression)

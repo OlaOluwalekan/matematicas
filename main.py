@@ -4,9 +4,9 @@ from evaluate.input_expression import input_expression
 from numerical_integrals.intervals import get_intervals
 from numerical_integrals.integral_solution import solve_integral
 from evaluate.variables import get_variables
-from evaluate.format import format_expression
 from quadratic.quadratic import solve_quadratic_equation
 from quadratic.quadratic_expression import get_quadratic_expression
+from evaluate.format import format_expression
 
 print("WELCOME TO MATEMATICAS")
 
